@@ -1,5 +1,22 @@
 import './App.css';
+import Profile from './components/Profile/Profile';
+import user from './data/user';
 
 export default function App() {
-  return 'Hello world!';
+  return (
+    <>
+      <div>
+        <Profile
+          name={user.name}
+          tag={user.tag}
+          location={user.location}
+          avatar={user.avatar}
+          stats={user.stats}
+          followers={user.stats.followers}
+          views={user.stats.views}
+          likes={user.stats.likes}
+        />
+      </div>
+    </>
+  );
 }
