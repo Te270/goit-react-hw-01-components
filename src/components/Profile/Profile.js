@@ -1,36 +1,47 @@
-export default function Profile({
-  name,
-  tag,
-  location,
-  avatar,
-  stats,
-  followers,
-  views,
-  likes,
-}) {
-  return (
-    <div class="profile">
-      <div class="description">
-        <img src={avatar} alt={name} class="avatar" />
-        <p class="name">{name}</p>
-        <p class="tag">@{tag}</p>
-        <p class="location">{location}</p>
-      </div>
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Profile.module.css';
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{followers}</span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{views}</span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{likes}</span>
-        </li>
-      </ul>
+const Profile = ({ name, tag, location, avatar, stats }) => (
+  <div className={styles.profile}>
+    <div className={styles.description}>
+      <img src={avatar} alt={name} className={styles.avatar} />
+      <p className={styles.name}>{name}</p>
+      <p className={styles.tag}>@{tag}</p>
+      <p className={styles.location}>{location}</p>
     </div>
-  );
-}
+
+    <ul className={styles.stats}>
+      <li>
+        <span className={styles.label}>Followers</span>
+        <span className={styles.quantity}>{stats.followers}</span>
+      </li>
+      <li>
+        <span className={styles.label}>Views</span>
+        <span className={styles.quantity}>{stats.views}</span>
+      </li>
+      <li>
+        <span className={styles.label}>Likes</span>
+        <span className={styles.quantity}>{stats.likes}</span>
+      </li>
+    </ul>
+  </div>
+);
+
+Profile.defaultProps = {
+  avatar: '',
+  tag: '',
+};
+
+Profile.propTypes = {
+  avatar: PropTypes.string,
+  tag: PropTypes.string,
+  name: PropTypes.string,
+  stats: PropTypes.shape({
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+  }),
+};
+
+export default Profile;
