@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Statistics.module.css';
-import generatorColor from '../../color_generate';
+import generatorColor from './color_generate';
 
 console.log('colorRange: ', generatorColor());
 

@@ -23,24 +23,6 @@
   box-shadow: 0 0 5px rgb(0 0 0 / 10%);
 }
 
-.status {
-  position: absolute;
-  top: 33%;
-  left: 5px;
-
-  width: 18px;
-  height: 18px;
-
-  margin-right: 15px;
-
-  border: 1px solid white;
-  border-radius: 50px;
-
-  vertical-align: middle;
-
-  background-color: red;
-}
-
 .onLine {
   position: absolute;
   top: 33%;
@@ -50,11 +32,7 @@
   height: 18px;
 
   margin-right: 15px;
-
-  border: 1px solid white;
   border-radius: 50px;
-
-  vertical-align: middle;
 
   background-color: green;
 }
@@ -68,11 +46,7 @@
   height: 18px;
 
   margin-right: 15px;
-
-  border: 1px solid white;
   border-radius: 50px;
-
-  vertical-align: middle;
 
   background-color: red;
 }
@@ -80,7 +54,7 @@
 .avatar {
   left: 150px;
   border-radius: 5px;
-  border: 1px solid green;
+  border: 1px solid rgb(36, 11, 105);
 
   margin-right: 10px;
   margin-left: 30px;
