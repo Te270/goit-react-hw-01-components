@@ -4,35 +4,17 @@ import FriendItem from './FriendItem';
 import styles from './FriendList.module.css';
 
 const FriendsList = ({ friends }) => (
-  <ul className={styles.stat_list}>
-    {friends.map(friend => {
-      let isOnline = 'onLine';
-      if (!friend.isOnline) {
-        isOnline = 'offLine';
-      }
-
-      return (
-        <FriendItem
-          id={friend.id}
-          avatar={friend.avatar}
-          name={friend.name}
-          isOnline={isOnline}
-        />
-      );
-    })}
+  <ul className={styles.friend_list}>
+    {friends.map(({ id, avatar, name, isOnline }) => (
+      <FriendItem key={id} avatar={avatar} name={name} isOnline={isOnline} />
+    ))}
   </ul>
 );
-
-FriendsList.defaultProps = {
-  friends: PropTypes.shape({
-    avatar: '',
-  }),
-};
 
 FriendsList.propTypes = {
   friends: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    avatar: PropTypes.string,
+    avatar: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     isOnline: PropTypes.string.isRequired,
   }),
