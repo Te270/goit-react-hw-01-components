@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TransactionItem from './TransactionItem';
 import styles from './TransactionHistory.module.css';
 
 const TransactionHistory = ({ items }) => (
@@ -14,22 +13,25 @@ const TransactionHistory = ({ items }) => (
     </thead>
     <tbody>
       {items.map(({ id, type, amount, currency }) => (
-        <TransactionItem
-          id={id}
-          type={type}
-          amount={amount}
-          currency={currency}
-        />
+        <tr key={id}>
+          <td>{type}</td>
+          <td>{amount}</td>
+          <td>{currency}</td>
+        </tr>
       ))}
     </tbody>
   </table>
 );
 
 TransactionHistory.propTypes = {
-  id: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
-  currency: PropTypes.string.isRequired,
-  amount: PropTypes.number.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+    }),
+  ),
 };
 
 export default TransactionHistory;
